@@ -23,3 +23,14 @@ in Vancouver, I was extremely happy because it meant more accessibility to these
 buy bubble tea now, it is very common to overspend on it, which can also cause health concerns. For someone like me who
 is not only health-conscious, but also money-conscious, an application like this will help me be more aware of how much 
 I actually drink bubble tea.
+
+## User Stories
+
+- As a user, I want to be able to add a drink to my list of drinks
+- As a user, I want to be able to view my list of drinks
+- As a user, I want to be able to select the type of drink to input (milk or non-milk)
+- As a user, I want to be able to specify the sugar level of the drink to input
+- As a user, I want to be able to select a topping for my drink to input
+- As a user, I want to be able to specify how much my drink costs
+- As a user, I want to be able to see the total amount of money I have spent on drinks
+- As a user, I want to be able to see the total amount of calories in my list
