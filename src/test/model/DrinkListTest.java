@@ -8,7 +8,7 @@ class DrinkListTest {
 
     DrinkList testList = new DrinkList();
     Drink sampleDrink = new Drink("M", "BLACK TEA", 0,"Pearls",400,4.50);
-    Drink anotherDrink = new Drink("L", "GREEN TEA", 50, "Aloe", 350, 5.00);
+    Drink anotherDrink = new Drink("L", "GREEN TEA", 50, "Grass Jelly", 350, 5.00);
 
 
     @Test
@@ -35,7 +35,7 @@ class DrinkListTest {
     void testViewDrinkList() {
         testList.addDrink(sampleDrink);
         testList.addDrink(anotherDrink);
-        assertEquals("M BLACK TEA with Pearls 0% sugar\nL GREEN TEA with Aloe 50% sugar\n", testList.viewDrinkList());
+        assertEquals("M BLACK TEA with Pearls 0% sugar\nL GREEN TEA with Grass Jelly 50% sugar\n", testList.viewDrinkList());
     }
 
     @Test
