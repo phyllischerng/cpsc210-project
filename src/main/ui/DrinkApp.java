@@ -29,8 +29,8 @@ public class DrinkApp {
     }
 
     // REQUIRES:
-    // MODIFIES:
-    // EFFECTS: processes user input
+    // MODIFIES: this
+    // EFFECTS: runs the app
     private void runDrinkApp() {
         bbtList = new DrinkList();
         boolean keepGoing = true;
@@ -52,6 +52,9 @@ public class DrinkApp {
         System.out.println("\nGoodbye!");
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: displays main menu
     private void displayMenu() {
         System.out.println("\nWelcome. What would you like to do?");
         System.out.println("\ta -> Add a drink");
@@ -77,8 +80,11 @@ public class DrinkApp {
         }
     }
 
+
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: adds a drink to the list
     private void addDrink() {
- //       Drink(String size, String flavour, int sugarLevel, String topping, int calories, double price)
 
         displayMenuSize();
         size = input.next();
@@ -108,46 +114,72 @@ public class DrinkApp {
 
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: prints the full names of the drinks in the list
     private void viewDrinkList() {
         System.out.println(bbtList.viewDrinkList());
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: prints the total cost of all drinks in the list
     private void getTotalMoney() {
         System.out.println(bbtList.getMoneySpent());
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: prints the total calories of all drinks in the list
     private void getTotalCalories() {
         System.out.println(bbtList.getCalories());
     }
 
-
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: displays size menu
     private void displayMenuSize() {
         System.out.println("\nWhat is the drink size?");
         System.out.println("\tm -> medium");
         System.out.println("\tl -> large");
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: displays flavour menu
     private void displayMenuFlavour() {
         System.out.println("\nWhat flavour is your drink?");
         System.out.println("\tb -> black tea");
         System.out.println("\tg -> green tea");
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: displays sugar level menu
     private void displayMenuSugarLevel() {
         System.out.println("What is your drink's sugar level? Input only 0, 30, 50, 70, 100, 120");
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: displays topping menu
     private void displayMenuTopping() {
         System.out.println("\nWhat topping did you get?");
         System.out.println("\tp -> pearls");
         System.out.println("\tgj -> grass jelly");
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: displays calories menu
     private void displayMenuCalories() {
         System.out.println("How many calories is in your drink?");
 
     }
 
+    // REQUIRES:
+    // MODIFIES:
+    // EFFECTS: displays price menu
     private void displayMenuPrice() {
         System.out.println("How much does your drink cost? Ex: 5.20 , 3.00 , 6.20");
     }
@@ -155,7 +187,7 @@ public class DrinkApp {
 
 
     // MODIFIES: this
-    // EFFECTS: processes user command
+    // EFFECTS: processes user command for size
     private void processCommandSize(String command) {
         if (command.equals("m")) {
             size = "M";
@@ -166,6 +198,9 @@ public class DrinkApp {
         }
     }
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: processes user command for flavour
     private void processCommandFlavour(String command) {
         if (command.equals("b")) {
             flavour = "BLACK TEA";
@@ -176,6 +211,9 @@ public class DrinkApp {
         }
     }
 
+    // REQUIRES:
+    // MODIFIES: this
+    // EFFECTS: processes user command for topping
     private void processCommandTopping(String command) {
         if (command.equals("p")) {
             topping = "Pearls";
