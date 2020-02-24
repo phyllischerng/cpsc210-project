@@ -34,3 +34,8 @@ I actually drink bubble tea.
 - As a user, I want to be able to specify how much my drink costs
 - As a user, I want to be able to see the total amount of money I have spent on drinks
 - As a user, I want to be able to see the total amount of calories in my list
+
+
+- As a user, when I select the quit option from the application menu, I want the option to save my to-do list to file
+- As a user, I want to be able to optionally load my to-do list from file when the program starts 
+
