@@ -27,7 +27,7 @@ public class DrinkList {
     public int getCalories() {
         totalCalories = 0;
         for (Drink d : drinkList) {
-            totalCalories = totalCalories + d.calories;
+            totalCalories = totalCalories + d.getCalories();
         }
         return totalCalories;
     }
@@ -40,7 +40,7 @@ public class DrinkList {
     public double getMoneySpent() {
         totalMoney = 0;
         for (Drink d : drinkList) {
-            totalMoney = totalMoney + d.price;
+            totalMoney = totalMoney + d.getPrice();
         }
         return totalMoney;
 
@@ -53,7 +53,7 @@ public class DrinkList {
     public String viewDrinkList() {
         String temp = "";
         for (Drink d : drinkList) {
-            temp = temp + d.fullName + "\n";
+            temp = temp + d.getFullName() + "\n";
         }
         return temp;
     }

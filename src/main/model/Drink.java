@@ -2,13 +2,13 @@ package model;
 
 public class Drink {
 
-    public int calories;
-    public double price;
+    private int calories;
+    private double price;
     private String size;
     private String topping;
     private int sugarLevel;
     private String flavour;
-    public String fullName;
+    private String fullName;
 
 
 
@@ -23,4 +23,15 @@ public class Drink {
         fullName = size + " " + flavour + " with " + topping + " " + sugarLevel + "% sugar";
     }
 
+    public int getCalories() {
+        return calories;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
 }
