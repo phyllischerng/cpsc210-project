@@ -26,7 +26,7 @@ I actually drink bubble tea.
 
 ## User Stories
 
-- As a user, I want to be able to add a drink to my list of drinks
+- As a user, I want to be able to add a Drink to my DrinkList
 - As a user, I want to be able to view my list of drinks
 - As a user, I want to be able to select the type of drink to input (milk or non-milk)
 - As a user, I want to be able to specify the sugar level of the drink to input

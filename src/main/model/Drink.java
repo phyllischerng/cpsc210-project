@@ -23,6 +23,22 @@ public class Drink {
         fullName = size + " " + flavour + " with " + topping + " " + sugarLevel + "% sugar";
     }
 
+    public String getSize() {
+        return size;
+    }
+
+    public String getFlavour() {
+        return flavour;
+    }
+
+    public int getSugarLevel() {
+        return sugarLevel;
+    }
+
+    public String getTopping() {
+        return topping;
+    }
+
     public int getCalories() {
         return calories;
     }
@@ -34,4 +50,8 @@ public class Drink {
     public String getFullName() {
         return fullName;
     }
+
+
+
+
 }

@@ -15,7 +15,7 @@ public class Reader {
 
     // EFFECTS: returns a list of drinks parsed from file; throws
     // IOException if an exception is raised when opening / reading from file
-    public static LinkedList<Drink> readAccounts(File file) throws IOException {
+    public static LinkedList<Drink> readDrinks(File file) throws IOException {
         List<String> fileContent = readFile(file);
         return parseContent(fileContent);
     }
@@ -33,7 +33,7 @@ public class Reader {
 
         for (String line : fileContent) {
             ArrayList<String> lineComponents = splitString(line);
-            drinkList.add(parseAccount(lineComponents));
+            drinkList.add(parseDrink(lineComponents));
         }
 
         return drinkList;
@@ -45,18 +45,21 @@ public class Reader {
         return new ArrayList<>(Arrays.asList(splits));
     }
 
-    // REQUIRES: components has size 4 where element 0 represents the
-    // id of the next account to be constructed, element 1 represents
-    // the id, elements 2 represents the name and element 3 represents
-    // the balance of the account to be constructed
-    // EFFECTS: returns an account constructed from components
-    private static Drink parseAccount(List<String> components) {
-        int nextId = Integer.parseInt(components.get(0));
-        int id = Integer.parseInt(components.get(1));
-        String name = components.get(2);
-        double balance = Double.parseDouble(components.get(3));
-        return new Drink(nextId, id, name, balance); //put drink contents here!!!
+    // REQUIRES: components has size 6 where element 0 represents the
+    // size of the next drink to be constructed, element 1 represents
+    // the flavour, elements 2 represents the sugar level, element 3 represents
+    // the topping of the account to be constructed, element 4 represents
+    // the number of calories, and element 5 represents
+    // the price of the drink to be constructed
+    // EFFECTS: returns a Drink constructed from components
+    private static Drink parseDrink(List<String> components) {
+        String size = components.get(0);
+        String flavour = components.get(1);
+        int sugarLevel = Integer.parseInt(components.get(2));
+        String topping = components.get(3);
+        int calories = Integer.parseInt(components.get(4));
+        double price = Double.parseDouble(components.get(5));
+        return new Drink(size,flavour,sugarLevel,topping,calories,price);
     }
-
 
 }

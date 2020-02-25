@@ -1,0 +1,2 @@
+L,BLACK TEA,50,Pearls,400,4.20
+M,GREEN TEA,100,Grass Jelly,350,5.21
