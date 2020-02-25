@@ -2,24 +2,29 @@ package ui;
 
 import model.Drink;
 import model.DrinkList;
+import persistence.Reader;
+import persistence.Writer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class DrinkApp {
     private Scanner input;
-    private DrinkList bbtList;
+    private DrinkList bbtList = new DrinkList();
 
-    String size = "";
-    String flavour = "";
-    int sugarLevel = 0;
-    String topping = "";
-    int calories = 0;
-    double price = 0;
+    private static final String DRINKS_FILE = "./data/testDrinks.txt";
+
+    String size;
+    String flavour;
+    int sugarLevel;
+    String topping;
+    int calories;
+    double price;
 
     // REQUIRES:
     // MODIFIES:
@@ -27,6 +32,7 @@ public class DrinkApp {
     public DrinkApp() {
         runDrinkApp();
     }
+
 
     // REQUIRES:
     // MODIFIES: this
@@ -61,6 +67,7 @@ public class DrinkApp {
         System.out.println("\tb -> View current drink list");
         System.out.println("\tc -> Get total money spent");
         System.out.println("\td -> Get total calories consumed");
+        System.out.println("\ts -> Save current drink list to file");
         System.out.println("\tq -> Quit");
     }
 
@@ -75,6 +82,8 @@ public class DrinkApp {
             getTotalMoney();
         } else if (command.equals("d")) {
             getTotalCalories();
+        } else if (command.equals("s")) {
+            saveDrinks();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -221,6 +230,44 @@ public class DrinkApp {
             topping = "Grass Jelly";
         } else {
             System.out.println("Selection not valid...");
+        }
+    }
+
+
+
+    // MODIFIES: this
+    // EFFECTS: loads list of drinks from DRINKS_FILE, if that file exists;
+    // otherwise initializes accounts with default values
+    private void loadDrinks() {
+        try {
+            LinkedList<Drink> drinks = Reader.readDrinks(new File(DRINKS_FILE));
+
+            for (Drink d : drinks) {
+                bbtList.addDrink(d);
+            }
+        } catch (IOException e) {
+            init();
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initializes DrinkList
+    private void init() {
+        bbtList = new DrinkList();
+    }
+
+    // EFFECTS: saves the newly inputted drink(s) to DRINKS_FILE
+    private void saveDrinks() {
+        try {
+            Writer writer = new Writer(new File(DRINKS_FILE));
+            writer.write(new Drink(size, flavour, sugarLevel, topping, calories, price));
+            writer.close();
+            System.out.println("Drinks saved to file " + DRINKS_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to save drinks to " + DRINKS_FILE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            // this is due to a programming error
         }
     }
 

@@ -1,6 +1,11 @@
 package model;
 
-public class Drink {
+import persistence.Reader;
+import persistence.Saveable;
+
+import java.io.PrintWriter;
+
+public class Drink implements Saveable {
 
     private int calories;
     private double price;
@@ -51,7 +56,22 @@ public class Drink {
         return fullName;
     }
 
+    @Override
+    public void save(PrintWriter printWriter) {
+        printWriter.print(size);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(flavour);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(sugarLevel);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(topping);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.print(calories);
+        printWriter.print(Reader.DELIMITER);
+        printWriter.println(price);
 
 
 
+
+    }
 }
