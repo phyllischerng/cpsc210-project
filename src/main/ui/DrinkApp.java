@@ -123,6 +123,8 @@ public class DrinkApp {
 
         bbtList.addDrink(new Drink(size, flavour, sugarLevel, topping, calories, price));
 
+        drinks.add(new Drink(size, flavour, sugarLevel, topping, calories, price));
+
     }
 
     // REQUIRES:
@@ -259,11 +261,11 @@ public class DrinkApp {
         bbtList = new DrinkList();
     }
 
-    // EFFECTS: saves the newly inputted drink(s) to DRINKS_FILE
+    // EFFECTS: saves the current drink list to DRINKS_FILE
     private void saveDrinks() {
         try {
             Writer writer = new Writer(new File(DRINKS_FILE));
-            // writer = writer + \n and then the new drinks?
+            // writer = writer + \n and then the new drinks??
 
 
             for (Drink d : drinks) {
