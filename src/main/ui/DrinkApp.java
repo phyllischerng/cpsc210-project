@@ -26,6 +26,8 @@ public class DrinkApp {
     int calories;
     double price;
 
+    LinkedList<Drink> drinks;
+
     // REQUIRES:
     // MODIFIES:
     // EFFECTS: runs the drink application
@@ -38,7 +40,7 @@ public class DrinkApp {
     // MODIFIES: this
     // EFFECTS: runs the app
     private void runDrinkApp() {
-        bbtList = new DrinkList();
+        loadDrinks();
         boolean keepGoing = true;
         String command = null;
         input = new Scanner(System.in);
@@ -240,11 +242,12 @@ public class DrinkApp {
     // otherwise initializes accounts with default values
     private void loadDrinks() {
         try {
-            LinkedList<Drink> drinks = Reader.readDrinks(new File(DRINKS_FILE));
+            drinks = Reader.readDrinks(new File(DRINKS_FILE));
 
             for (Drink d : drinks) {
                 bbtList.addDrink(d);
             }
+
         } catch (IOException e) {
             init();
         }
@@ -260,7 +263,15 @@ public class DrinkApp {
     private void saveDrinks() {
         try {
             Writer writer = new Writer(new File(DRINKS_FILE));
-            writer.write(new Drink(size, flavour, sugarLevel, topping, calories, price));
+            // writer = writer + \n and then the new drinks?
+
+
+            for (Drink d : drinks) {
+                writer.write(new Drink(d.getSize(), d.getFlavour(),d.getSugarLevel(), d.getTopping(),
+                        d.getCalories(), d.getPrice()));
+            }
+            // for loop over drinks
+
             writer.close();
             System.out.println("Drinks saved to file " + DRINKS_FILE);
         } catch (FileNotFoundException e) {

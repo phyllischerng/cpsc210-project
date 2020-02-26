@@ -27,7 +27,7 @@ public class Reader {
     }
 
     // EFFECTS: returns a list of drinks parsed from list of strings
-    // where each string contains data for one account
+    // where each string contains data for one drink
     private static LinkedList<Drink> parseContent(List<String> fileContent) {
         LinkedList<Drink> drinkList = new LinkedList<>();
 

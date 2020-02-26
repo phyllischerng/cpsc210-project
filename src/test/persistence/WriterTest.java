@@ -40,6 +40,8 @@ public class WriterTest {
         try {
             LinkedList<Drink> drinkList = Reader.readDrinks(new File(TEST_FILE));
             Drink testDrink = drinkList.get(0);
+            Drink anotherTestDrink = drinkList.get(1);
+
             assertEquals("M", testDrink.getSize());
             assertEquals("BLACK TEA", testDrink.getFlavour());
             assertEquals(0, testDrink.getSugarLevel());
@@ -47,7 +49,6 @@ public class WriterTest {
             assertEquals(400, testDrink.getCalories());
             assertEquals(4.50, testDrink.getPrice());
 
-            Drink anotherTestDrink = drinkList.get(1);
             assertEquals("L", anotherTestDrink.getSize());
             assertEquals("GREEN TEA", anotherTestDrink.getFlavour());
             assertEquals(50, anotherTestDrink.getSugarLevel());
