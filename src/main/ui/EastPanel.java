@@ -38,6 +38,7 @@ public class EastPanel extends JPanel {
 
         loadDrinks();
 
+
         JList<Drink> tempList = new JList<>();
         DefaultListModel<Drink> tempModel = new DefaultListModel<>();
         JList<String> listOfDrinks = new JList<>();
@@ -71,6 +72,7 @@ public class EastPanel extends JPanel {
 
         add(listOfDrinks,gc);
 
+        /*
         gc.gridx = 0;
         gc.gridy = 1;
 
@@ -80,10 +82,8 @@ public class EastPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveDrinks();
-                
-                // fire main menu
             }
-        });
+        });*/
     }
 
     // MODIFIES: this

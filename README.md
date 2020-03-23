@@ -39,3 +39,13 @@ I actually drink bubble tea.
 - As a user, when I select the quit option from the application menu, I want the option to save my to-do list to file
 - As a user, I want to be able to optionally load my to-do list from file when the program starts 
 
+
+##Instructions for Grader
+- You can generate the first required event by: Press add drink, choose a size, choose a flavour, choose a sugar level,
+choose a topping, input number of calories (integer) and press submit, enter a price (double) such as 5.12 and press
+submit. This will add the Drink to the list on the right side when the application is reopened.
+- You can generate the second required event by closing the application and reopening it, as the second event's goal
+is to display that the new drink's calories and price is added to the total on the left panel.
+- You can save the state of my application by entering a drink. The application will save automatically.
+- You can reload the state of my application by closing my application and reopening it as the state will load
+automatically.

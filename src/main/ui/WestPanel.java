@@ -33,13 +33,13 @@ public class WestPanel extends JPanel {
 
         loadDrinks();
 
-        totalMoney = bbtList.getMoneySpent();
-        totalCalories = bbtList.getCalories();
+
+
 
         JLabel totalMoneyLabel = new JLabel("Total Money Spent: ");
         JLabel totalCaloriesLabel = new JLabel("Total Calories Consumed: ");
-        totalMoneyNumber = new JLabel("$" + Double.toString(totalMoney));
-        totalCaloriesNumber = new JLabel(Integer.toString(totalCalories));
+        updateNumbers();
+
 
 
         setLayout(new GridBagLayout());
@@ -90,4 +90,13 @@ public class WestPanel extends JPanel {
     private void init() {
         bbtList = new DrinkList();
     }
+
+    public void updateNumbers() {
+        totalMoney = bbtList.getMoneySpent();
+        totalCalories = bbtList.getCalories();
+        totalMoneyNumber = new JLabel("$" + Double.toString(totalMoney));
+        totalCaloriesNumber = new JLabel(Integer.toString(totalCalories));
+
+    }
 }
+

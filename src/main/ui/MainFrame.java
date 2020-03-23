@@ -1,15 +1,28 @@
 package ui;
 
+import model.Drink;
+import model.DrinkList;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 public class MainFrame extends JFrame {
 
     private WestPanel totalPanel;
     private EastPanel drinkListPanel;
     private CenterPanel centerPanel;
+
+    double totalMoney;
+    int totalCalories;
+
+    DrinkList bbtList = CenterPanel.bbtList;
+    LinkedList<Drink> drinks = CenterPanel.drinks;
+
+    private static final String DRINKS_FILE = "./data/testDrinks.txt";
+
 
     public MainFrame(String title) {
         super(title);
@@ -36,7 +49,9 @@ public class MainFrame extends JFrame {
 
         // Add behaviour
 
-        // Refresh panel
+        // Add Panels to Frame
+
+
 
 
 

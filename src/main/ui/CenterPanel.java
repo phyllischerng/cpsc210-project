@@ -5,12 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 
 import model.Drink;
 import model.DrinkList;
 import persistence.Reader;
+import persistence.Writer;
 import ui.DrinkApp;
 import ui.WestPanel;
 
@@ -117,10 +120,7 @@ public class CenterPanel extends JPanel {
     }
 
     public void fireMainMenu() {
-
         loadDrinks();
-// can't load yet because the new drink isn't saved
-        // firemainmenu after saving
 
         addButton.setVisible(true);
         setLayout(new GridBagLayout());
@@ -424,6 +424,7 @@ public class CenterPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 price = Double.parseDouble(priceField.getText());
                 fireProcessDrink();
+
             }
         });
     }
@@ -431,8 +432,8 @@ public class CenterPanel extends JPanel {
     public void fireProcessDrink() {
         bbtList.addDrink(new Drink(size, flavour, sugarLevel, topping, calories, price));
         drinks.add(new Drink(size, flavour, sugarLevel, topping, calories, price));
-        fireMainMenu();
-
+        saveDrinks();
+//        fireMainMenu();
     }
 
     // MODIFIES: this
@@ -457,6 +458,28 @@ public class CenterPanel extends JPanel {
         bbtList = new DrinkList();
     }
 
+    // EFFECTS: saves the current drink list to DRINKS_FILE
+    private void saveDrinks() {
+        try {
+            Writer writer = new Writer(new File(DRINKS_FILE));
+            // writer = writer + \n and then the new drinks??
+
+
+            for (Drink d : drinks) {
+                writer.write(new Drink(d.getSize(), d.getFlavour(),d.getSugarLevel(), d.getTopping(),
+                        d.getCalories(), d.getPrice()));
+            }
+            // for loop over drinks
+
+            writer.close();
+            System.out.println("Drinks saved to file " + DRINKS_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to save drinks to " + DRINKS_FILE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            // this is due to a programming error
+        }
+    }
 
 
 }
