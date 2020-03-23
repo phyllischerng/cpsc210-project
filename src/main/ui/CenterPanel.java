@@ -431,7 +431,7 @@ public class CenterPanel extends JPanel {
                 fireProcessDrink();
 
                 //play an audio
-                playSound("ding.mp3");
+                playSound("ding.wav");
 
             }
         });
