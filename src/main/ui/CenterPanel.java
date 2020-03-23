@@ -18,10 +18,6 @@ import model.Drink;
 import model.DrinkList;
 import persistence.Reader;
 import persistence.Writer;
-import ui.DrinkApp;
-import ui.WestPanel;
-
-
 
 
 public class CenterPanel extends JPanel {
@@ -287,7 +283,12 @@ public class CenterPanel extends JPanel {
 
     public void fireSugarEvent() {
         toggleFireSugarEventVisibility();
+        toggleZeroToFiftySugarButton();
+        toggleSeventyToExtraSugarButton();
 
+    }
+
+    public void toggleZeroToFiftySugarButton() {
         // if 0 is pressed
         noSugarButton.addActionListener(new ActionListener() {
             @Override
@@ -296,7 +297,6 @@ public class CenterPanel extends JPanel {
                 fireToppingEvent();
             }
         });
-
         // if 30 is pressed
         thirtySugarButton.addActionListener(new ActionListener() {
             @Override
@@ -314,7 +314,9 @@ public class CenterPanel extends JPanel {
                 fireToppingEvent();
             }
         });
+    }
 
+    public void toggleSeventyToExtraSugarButton() {
         // if 70 is pressed
         seventySugarButton.addActionListener(new ActionListener() {
             @Override
