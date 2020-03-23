@@ -1,5 +1,9 @@
 package ui;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -68,6 +72,7 @@ public class CenterPanel extends JPanel {
     protected static LinkedList<Drink> drinks;
 
     private static final String DRINKS_FILE = "./data/testDrinks.txt";
+
 
 
 
@@ -425,6 +430,9 @@ public class CenterPanel extends JPanel {
                 price = Double.parseDouble(priceField.getText());
                 fireProcessDrink();
 
+                //play an audio
+                playSound("ding.mp3");
+
             }
         });
     }
@@ -480,6 +488,19 @@ public class CenterPanel extends JPanel {
             // this is due to a programming error
         }
     }
+
+    public void playSound(String soundName) {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception ex) {
+            System.out.println("Error with playing sound.");
+            ex.printStackTrace();
+        }
+    }
+
 
 
 }

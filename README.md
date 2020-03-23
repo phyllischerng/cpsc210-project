@@ -46,6 +46,8 @@ choose a topping, input number of calories (integer) and press submit, enter a p
 submit. This will add the Drink to the list on the right side when the application is reopened.
 - You can generate the second required event by closing the application and reopening it, as the second event's goal
 is to display that the new drink's calories and price is added to the total on the left panel.
+- You can locate my audio component by pressing the submit button on the enter price page. It has been buggy so if it
+doesn't work, then you can run the rest of my program by commenting " playSound("ding.mp3");" out.
 - You can save the state of my application by entering a drink. The application will save automatically.
 - You can reload the state of my application by closing my application and reopening it as the state will load
 automatically.
