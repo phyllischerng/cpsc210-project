@@ -28,21 +28,17 @@ public class EastPanel extends JPanel {
 
     LinkedList<Drink> drinks = CenterPanel.drinks;
 
+    JList<Drink> tempList = new JList<>();
+    DefaultListModel<Drink> tempModel = new DefaultListModel<>();
+    JList<String> listOfDrinks = new JList<>();
+    DefaultListModel<String> model = new DefaultListModel<>();
+
 
     public EastPanel() {
-        Dimension size = getPreferredSize();
-        size.width = 250;
-        setPreferredSize(size);
 
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        setPanelDimensions();
 
         loadDrinks();
-
-
-        JList<Drink> tempList = new JList<>();
-        DefaultListModel<Drink> tempModel = new DefaultListModel<>();
-        JList<String> listOfDrinks = new JList<>();
-        DefaultListModel<String> model = new DefaultListModel<>();
 
         tempList.setModel(tempModel);
         listOfDrinks.setModel(model);
@@ -54,9 +50,6 @@ public class EastPanel extends JPanel {
         for (int k = 0; k < tempModel.size(); k++) {
             model.addElement(tempModel.get(k).getFullName());
         }
-
-
-        JButton saveButton = new JButton("Save");
 
         setLayout(new GridBagLayout());
 
@@ -71,19 +64,13 @@ public class EastPanel extends JPanel {
         gc.gridy = 0;
 
         add(listOfDrinks,gc);
+    }
 
-        /*
-        gc.gridx = 0;
-        gc.gridy = 1;
-
-        add(saveButton,gc);
-
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                saveDrinks();
-            }
-        });*/
+    private void setPanelDimensions() {
+        Dimension size = getPreferredSize();
+        size.width = 250;
+        setPreferredSize(size);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     // MODIFIES: this
