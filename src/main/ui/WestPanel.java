@@ -25,15 +25,8 @@ public class WestPanel extends JPanel {
     JLabel totalMoneyNumber;
 
     public WestPanel() {
-        Dimension size = getPreferredSize();
-        size.width = 200;
-        setPreferredSize(size);
-
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
+        setPanelDimensions();
         loadDrinks();
-
-
 
 
         JLabel totalMoneyLabel = new JLabel("Total Money Spent: ");
@@ -65,8 +58,13 @@ public class WestPanel extends JPanel {
         gc. gridy = 3;
         add(totalCaloriesNumber,gc);
 
+    }
 
-
+    public void setPanelDimensions() {
+        Dimension size = getPreferredSize();
+        size.width = 200;
+        setPreferredSize(size);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     // MODIFIES: this
