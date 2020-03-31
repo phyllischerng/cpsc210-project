@@ -94,25 +94,4 @@ public class EastPanel extends JPanel {
     private void init() {
         bbtList = new DrinkList();
     }
-
-
-    // EFFECTS: saves the current drink list to DRINKS_FILE
-    private void saveDrinks() {
-        try {
-            Writer writer = new Writer(new File(DRINKS_FILE));
-
-            for (Drink d : drinks) {
-                writer.write(new Drink(d.getSize(), d.getFlavour(),d.getSugarLevel(), d.getTopping(),
-                        d.getCalories(), d.getPrice()));
-            }
-
-            writer.close();
-            System.out.println("Drinks saved to file " + DRINKS_FILE);
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to save drinks to " + DRINKS_FILE);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            // this is due to a programming error
-        }
-    }
 }

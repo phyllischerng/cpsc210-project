@@ -15,12 +15,6 @@ public class MainFrame extends JFrame {
     private EastPanel drinkListPanel;
     private CenterPanel centerPanel;
 
-    double totalMoney;
-    int totalCalories;
-
-    DrinkList bbtList = CenterPanel.bbtList;
-    LinkedList<Drink> drinks = CenterPanel.drinks;
-
     private static final String DRINKS_FILE = "./data/testDrinks.txt";
 
 
