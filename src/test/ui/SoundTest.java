@@ -49,7 +49,8 @@ public class SoundTest extends CenterPanel {
     @Test
     void testPlaySoundExceptionExpected() {
         try {
-            playSound("SomethingThatDoesntExist.wav");
+            Sound s = new Sound();
+            s.playSound("SomethingThatDoesntExist.wav");
             fail("Should have threw an exception!!");
         } catch (Exception ex){
 
@@ -59,7 +60,8 @@ public class SoundTest extends CenterPanel {
     @Test
     void testPlaySoundExceptionNotExpected() {
         try {
-            playSound("ding.wav");
+            Sound s = new Sound();
+            s.playSound("ding.wav");
         } catch (Exception ex) {
             fail("Should NOT have thrown an exception :(");
         }

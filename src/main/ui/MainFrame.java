@@ -1,13 +1,7 @@
 package ui;
 
-import model.Drink;
-import model.DrinkList;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.LinkedList;
 
 public class MainFrame extends JFrame {
 
@@ -23,11 +17,6 @@ public class MainFrame extends JFrame {
 
         // Set layout manager
         setLayout(new BorderLayout());
-
-
-
-        // Create Swing components
-
 
         // Adding a panel
         totalPanel = new WestPanel();

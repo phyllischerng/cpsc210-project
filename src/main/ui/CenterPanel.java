@@ -19,6 +19,8 @@ import model.DrinkList;
 import persistence.Reader;
 import persistence.Writer;
 
+import ui.Sound;
+
 
 public class CenterPanel extends JPanel {
 
@@ -434,7 +436,8 @@ public class CenterPanel extends JPanel {
 
                 //play an audio
                 try {
-                    playSound("ding.wav");
+                    Sound ding = new Sound();
+                    ding.playSound("ding.wav");
                 } catch (Exception ex) {
                     System.out.println("ouch");
                 }
@@ -496,13 +499,7 @@ public class CenterPanel extends JPanel {
         }
     }
 
-    public void playSound(String soundName) throws Exception {
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioInputStream);
-        clip.start();
 
-    }
 
 
 

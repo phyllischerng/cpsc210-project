@@ -18,11 +18,6 @@ public class DrinkGUI extends JFrame {
                 frame.setVisible(true);
             }
         });
-
-
-
-
-
     }
 
 }

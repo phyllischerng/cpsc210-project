@@ -1,3 +1,4 @@
+/*
 package ui;
 
 import model.Drink;
@@ -10,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class DrinkApp {
@@ -285,3 +285,5 @@ public class DrinkApp {
     }
 
 }
+
+ */
