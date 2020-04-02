@@ -59,3 +59,18 @@ is my playSound method in the CenterPanel class. The corresponding test class to
 that throw a checked exception is getTextCalories and getTextPrice methods inside CenterPanel. They throw a
 NegativeNumberException, which is an exception I created to ensure the Calories and Price fields are non-negative
 numbers.
+
+##Phase 4: Task 3
+Problems I found:
+- Too much coupling
+    - There are methods that contain duplicate code in CenterPanel, WestPanel, and EastPanel, such as loadDrinks()
+    and init(). However, all these methods operate on fields that belong locally within the panels.
+    - Another duplicate method is setPanelDimensions().
+-Poor cohesion
+    - CenterPanel handles the audio component as well as everything else. I could instead have a separate class for 
+    Audio.
+    
+What I fixed:
+- Fixed many duplicate code across all classes, removed my original DrinkApp.java console application, and made
+a separate class Sound that handles audio for the app separately. Added SoundTest as well.
+
