@@ -55,4 +55,7 @@ automatically.
 ##Phase 4: Task 2
 The option I chose to implement is to test and design a class that is robust. My method that throws a checked exception
 is my playSound method in the CenterPanel class. The corresponding test class to this method is in the class called 
-"SoundTest". It has two tests: one where an exception is expected, and another where it is not expected.
+"SoundTest". It has two tests: one where an exception is expected, and another where it is not expected. Other methods
+that throw a checked exception is getTextCalories and getTextPrice methods inside CenterPanel. They throw a
+NegativeNumberException, which is an exception I created to ensure the Calories and Price fields are non-negative
+numbers.

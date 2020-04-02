@@ -1,9 +1,5 @@
 package ui;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.AudioSystem;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,9 +14,7 @@ import model.Drink;
 import model.DrinkList;
 import persistence.Reader;
 import persistence.Writer;
-
-import ui.Sound;
-
+import ui.exceptions.NegativeNumberException;
 
 public class CenterPanel extends JPanel {
 
@@ -32,8 +26,6 @@ public class CenterPanel extends JPanel {
     String topping;
     int calories;
     double price;
-
-
 
     JButton addButton;
 
@@ -412,10 +404,22 @@ public class CenterPanel extends JPanel {
         caloriesSubmitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calories = Integer.parseInt(caloriesField.getText());
-                firePriceEvent();
+                try {
+                    getTextCalories();
+                    firePriceEvent();
+                } catch (NegativeNumberException ex) {
+                    ex.printStackTrace();
+                }
+
             }
         });
+    }
+
+    public void getTextCalories() throws NegativeNumberException {
+        calories = Integer.parseInt(caloriesField.getText());
+        if (calories < 0) {
+            throw new NegativeNumberException();
+        }
     }
 
     public void firePriceEvent() {
@@ -431,20 +435,34 @@ public class CenterPanel extends JPanel {
         priceSubmitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                price = Double.parseDouble(priceField.getText());
-                fireProcessDrink();
-
-                //play an audio
                 try {
-                    Sound ding = new Sound();
-                    ding.playSound("ding.wav");
-                } catch (Exception ex) {
-                    System.out.println("ouch");
+                    getTextPrice();
+                    fireProcessDrink();
+                    
+                    //play an audio
+                    try {
+                        Sound ding = new Sound();
+                        ding.playSound("ding.wav");
+                    } catch (Exception ex) {
+                        System.out.println("ouch");
+                    }
+                } catch (NegativeNumberException ex) {
+                    ex.printStackTrace();
                 }
+
+
+
 
 
             }
         });
+    }
+
+    public void getTextPrice() throws NegativeNumberException {
+        price = Double.parseDouble(priceField.getText());
+        if (price < 0) {
+            throw new NegativeNumberException();
+        }
     }
 
     public void fireProcessDrink() {

@@ -62,7 +62,7 @@ public class WestPanel extends JPanel {
 
     public void setPanelDimensions() {
         Dimension size = getPreferredSize();
-        size.width = 200;
+        size.width = 250;
         setPreferredSize(size);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
